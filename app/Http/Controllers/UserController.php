@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Stuff;
-use App\Http\Requests\StoreStuffRequest;
-use App\Http\Requests\UpdateStuffRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class StuffController extends Controller
+class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('stuff.list');
+        return view('user.list');
     }
 
     /**
@@ -21,13 +17,13 @@ class StuffController extends Controller
      */
     public function create()
     {
-        return view('stuff.add');
+        return view('user.add');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStuffRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +31,7 @@ class StuffController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Stuff $stuff)
+    public function show(User $user)
     {
         //
     }
@@ -43,7 +39,7 @@ class StuffController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Stuff $stuff)
+    public function edit(User $user)
     {
         //
     }
@@ -51,7 +47,7 @@ class StuffController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStuffRequest $request, Stuff $stuff)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -59,7 +55,7 @@ class StuffController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Stuff $stuff)
+    public function destroy(User $user)
     {
         //
     }

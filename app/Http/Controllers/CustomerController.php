@@ -13,7 +13,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return view('customer.list');
     }
 
     /**
@@ -21,7 +21,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customer.add');
     }
 
     /**

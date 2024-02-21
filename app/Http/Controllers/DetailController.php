@@ -13,7 +13,7 @@ class DetailController extends Controller
      */
     public function index()
     {
-        //
+        return view('detail.list');
     }
 
     /**
@@ -21,7 +21,7 @@ class DetailController extends Controller
      */
     public function create()
     {
-        //
+        return view('detail.add');
     }
 
     /**
