@@ -6,7 +6,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\UserController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,21 +23,28 @@ Route::get('/', function () {
     return view('home');
 });
 
-route::get('transaction', [TransactionController::class, 'index']);
-route::get('transaction/add', [TransactionController::class, 'create']);
+route::get('transactions', [TransactionController::class, 'index']);
+route::get('transactions/create', [TransactionController::class, 'create']);
 
-route::get('customer', [CustomerController::class, 'index']);
-route::get('customer/add', [CustomerController::class, 'create']);
-route::get('customer', [CustomerController::class, 'store']);
-route::get('customer/{customer}', [CustomerController::class, 'destory']);
 
-route::get('category', [CategoryController::class, 'index']);
-route::get('category/add', [CategoryController::class, 'create']);
+Route::resource('customers', CustomerController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('users', UserController::class);
+Route::resource('stuffs', StuffController::class);
 
-route::get('user', [UserController::class, 'index']);
-route::get('user/add', [UserController::class, 'create']);
 
-route::get('stuff', [StuffController::class, 'index']);
-route::get('stuff/add', [StuffController::class, 'create']);
+// route::get('customer', [CustomerController::class, 'index']);
+// route::get('customer/add', [CustomerController::class, 'create']);
+// route::get('customer', [CustomerController::class, 'store']);
+// route::get('customer/{customer}', [CustomerController::class, 'destory']);
+
+// route::get('category', [CategoryController::class, 'index']);
+// route::get('category/add', [CategoryController::class, 'create']);
+
+// route::get('user', [UserController::class, 'index']);
+// route::get('user/add', [UserController::class, 'create']);
+
+// route::get('stuff', [StuffController::class, 'index']);
+// route::get('stuff/add', [StuffController::class, 'create']);
 
 

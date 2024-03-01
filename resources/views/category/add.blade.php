@@ -4,6 +4,5 @@
 
 @section('content')
 
-Kategori
     
 @endsection

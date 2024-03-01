@@ -44,21 +44,23 @@
                         <th>Status</th>
                     </tr>
                   </thead>
-                    <tbody>
+                  <tbody>
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->id}}</td>
                             <td>{{ $item->name}}</td>
                             <td>{{ $item->address}}</td>
-                            <td>{{ $item->gender == 1? 'Laki-Laki' : 'Perempuan'}}</td>
-                            <td>{{ $item->status == 1? 'Aktif' : 'Tidak'}}</td>
+                            <td>{{ $item->gender == 1 ? 'Laki-Laki' : 'Perempuan'}}</td>
+                            <td>{{ $item->status == 1 ? 'Aktif' : 'Tidak'}}</td>
                             <td>
+                              <a href="/customers/{{ $item->id }}">
                                 <button type="button" class="btn btn-warning btn-sm"><i
-                                    class="far fa-edit"></i></button>
+                                  class="far fa-edit"></i></button>
+                                </a>
 
-                                <form action="/customer/{{ $item->id}}" method="GET">
+                                <form action="/customers/{{ $item->id}}" method="GET">
                                     @csrf
-                                    @method('DELETED')
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"><i
                                         class="far fa-trash-alt"></i></button>
                                 </form>
@@ -66,7 +68,7 @@
                         </tr>    
                     @endforeach
                   
-                    </tbody>
+                  </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -81,6 +83,6 @@
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-  </div>
+</div>
     
 @endsection
