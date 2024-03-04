@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\StuffController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,18 +20,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('generateDate', [AuthController::class, 'generateData']);
+
 Route::get('/', function () {
     return view('home');
+})->middleware('is.auth');
+
+Route::get('login', [AuthController::class, 'showLogin'])->middleware('is.not.auth');
+Route::post('login', [AuthController::class, 'actionLogin'])->middleware('is.not.auth');
+
+Route::middleware(['is.auth'])->group(function () {
+    Route::get('logout', [AuthController::class, 'actionLogout']);
+
+    Route::get('transactions', [TransactionController::class, 'index']);
+    Route::get('transactions/create', [TransactionController::class, 'create']);
+
+    Route::resource('customers', CustomerController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('stuffs', StuffController::class);
+
 });
 
-route::get('transactions', [TransactionController::class, 'index']);
-route::get('transactions/create', [TransactionController::class, 'create']);
 
-
-Route::resource('customers', CustomerController::class);
-Route::resource('categories', CategoryController::class);
-Route::resource('users', UserController::class);
-Route::resource('stuffs', StuffController::class);
 
 
 // route::get('customer', [CustomerController::class, 'index']);

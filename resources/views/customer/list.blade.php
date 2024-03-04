@@ -56,9 +56,9 @@
                               <a href="/customers/{{ $item->id }}">
                                 <button type="button" class="btn btn-warning btn-sm"><i
                                   class="far fa-edit"></i></button>
-                                </a>
+                              </a>
 
-                                <form action="/customers/{{ $item->id}}" method="GET">
+                                <form action="/customers/{{ $item->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"><i

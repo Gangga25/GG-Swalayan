@@ -35,7 +35,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/customers/{{ @$data->$id}}" method="POST">
+              <form action="/customers/{{ @$data->id}}" method="POST">
                 @if (@$data)
                     @method('PUT')
                 @endif

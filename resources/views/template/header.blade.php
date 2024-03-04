@@ -15,6 +15,19 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">
+          <button type="button" class="btn btn-danger btn-sm">
+            <i class="fas fa-sign-out-alt me-2"></i> Logout
+          </button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
     </ul>
-  </nav>
+</nav>
   <!-- /.navbar -->
