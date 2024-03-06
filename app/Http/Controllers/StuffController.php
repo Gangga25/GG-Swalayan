@@ -33,6 +33,7 @@ class StuffController extends Controller
      */
     public function store(StoreStuffRequest $request)
     {
+        // dd($request);
         Stuff::create($request->all());
 
         return redirect('/stuffs');

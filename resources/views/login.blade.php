@@ -13,13 +13,22 @@
   <link rel="stylesheet" href="/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
+
+  <style>
+    .logo {
+      height: 100px;
+      width: auto;
+    }
+  </style>
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+      {{-- <a href="../../index2.html" class="h1"><b></b></a> --}}
+      <img class="logo" src="/img/logo.png" alt="Logo">
     </div>
     <div class="card-body">
       <p class="login-box-msg">Silahkan Login Dulu</p>

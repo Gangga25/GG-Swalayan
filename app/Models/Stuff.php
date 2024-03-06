@@ -17,7 +17,7 @@ class Stuff extends Model
 
     protected $fillable = [
         'id',
-        'nota',
+        'name',
         'price',
         'unit',
         'status',
