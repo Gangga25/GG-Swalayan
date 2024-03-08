@@ -52,7 +52,7 @@
                     <label for="exampleSelectRounded0">Status</label>
                     <select name="status" class="custom-select rounded-0">
                         <option value="1" {{ @$data->status == 1 ? 'selected' : ''}}>Tersedia</option>
-                        <option value="0" {{ @$data->status == 0 ? 'selected' : ''}}>Tidak Tersedia</option>
+                        <option value="0" {{ @$data->status == 0 ? 'selected' : ''}}>Habis</option>
                     </select> 
                 </div>
                 <!-- /.card-body -->

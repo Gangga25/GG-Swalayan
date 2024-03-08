@@ -6,6 +6,8 @@ use App\Models\Stuff;
 use App\Http\Requests\StoreStuffRequest;
 use App\Http\Requests\UpdateStuffRequest;
 
+use Illuminate\Support\Facades\DB;
+
 class StuffController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class StuffController extends Controller
      */
     public function index()
     {
-        $stuffs = Stuff::all();
+        $stuffs = Stuff::with(['category', 'detail'])->get();
 
         return view('stuff.list', [
             'data' => $stuffs,

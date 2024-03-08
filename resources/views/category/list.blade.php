@@ -11,7 +11,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Kategori</h1>
+            <h1>KATEGORI</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -47,7 +47,7 @@
                         <tr>
                             <td>{{ $item->id}}</td>
                             <td>{{ $item->name}}</td>
-                            <td>{{ $item->status == 1 ? 'Tersedia' : 'Tidak Tersedia'}}</td>
+                            <td>{{ $item->status == 1 ? 'Tersedia' : 'Habis'}}</td>
                             <td>
                               <a href="/categories/{{ $item->id }}">
                                 <button type="button" class="btn btn-warning btn-sm"><i

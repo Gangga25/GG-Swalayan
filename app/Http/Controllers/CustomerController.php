@@ -35,7 +35,9 @@ class CustomerController extends Controller
     {
         Customer::create($request->all());
 
-        return redirect('/customers');
+        return redirect('/customers')->with([
+            'pesan' => 'Data berhasil di simpan',
+        ]);
     }
 
     /**
