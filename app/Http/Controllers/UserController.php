@@ -32,6 +32,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $path = $request->file('file')->store('avatar');
 
         $request->merge(['avatar' => $path]);

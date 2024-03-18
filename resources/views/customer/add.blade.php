@@ -23,6 +23,7 @@
     </section>
 
     <!-- Main content -->
+  <form action="/customers/{{ @$data->id}}" method="POST">
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -31,11 +32,11 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Input Customer</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/customers/{{ @$data->id}}" method="POST">
+              
                 @if (@$data)
                     @method('PUT')
                 @endif
@@ -74,7 +75,6 @@
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
-              </form>
             </div>
             <!-- /.card -->
           </div>
@@ -82,6 +82,7 @@
       </div>
       <!-- /.container-fluid -->
     </section>
+  </form>
     <!-- /.content -->
 </div>
     

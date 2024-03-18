@@ -23,19 +23,31 @@
     </section>
 
     <!-- Main content -->
+  <form action="/stuffs/{{ @$data->id}}" method="POST" enctype="multipart/form-data">
     <section class="content">
       <div class="container-fluid">
         <div class="row">
+
+          <div class="col-4">
+            <div class="card card-primary">
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="file" id="file" name="file">
+                </div>
+              </div>
+            </div>
+          </div> 
+
           <!-- left column -->
-          <div class="col-md-12">
+          <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Input Barang</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/stuffs/{{ @$data->id}}" method="POST">
+              
                 @if (@$data)
                     @method('PUT')
                 @endif
@@ -57,6 +69,17 @@
                     <label for="unit">Satuan</label>
                     <input type="text" class="form-control" name="unit" placeholder="Satuan" value="{{ @$data->unit}}">
                   </div>
+                  <div class="form-group">
+                    <label for="id_category">Kategori</label>
+                    <select name="id_category" class="custom-select rounded-0">
+                      @foreach ($categories as $item)
+                      <option value="{{ $item->id}}">
+                        {{ @$data->id_category == $item->id ? 'selected' : ''}}>
+                        {{ $item->name }}
+                      </option>
+                      @endforeach
+                    </select>
+                  </div>
                     <label for="exampleSelectRounded0">Status</label>
                     <select name="status" class="custom-select rounded-0">
                         <option value="1" {{ @$data->status == 1 ? 'selected' : ''}}>Tersedia</option>
@@ -67,7 +90,6 @@
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
-              </form>
             </div>
             <!-- /.card -->
           </div>
@@ -75,6 +97,7 @@
       </div>
       <!-- /.container-fluid -->
     </section>
+  </form>
     <!-- /.content -->
 </div>
 

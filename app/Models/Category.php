@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Stuff;
 class Category extends Model
 {
     use HasFactory;
@@ -19,6 +20,9 @@ class Category extends Model
         'id',
         'name',
         'status',
-
     ];
+
+    public function stuff() {
+        return $this->hasMany(Stuff::class, 'id_stuff', 'id');
+    }
 }

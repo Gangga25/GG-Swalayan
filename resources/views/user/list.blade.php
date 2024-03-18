@@ -28,6 +28,23 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+
+            @if (session('mess'))
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">{{ session('mess') }}</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            @endif
+
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Data User</h3>
@@ -38,19 +55,23 @@
                   <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Avatar</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Password</th>
+                        <th>Level</th>
+                        <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->id}}</td>
+                            <td>
+                              <img style="width: 200px; height: auto;" src="{{ $item->avatar }}">
+                            </td>
                             <td>{{ $item->name}}</td>
                             <td>{{ $item->email}}</td>
-                            <td>{{ $item->password}}</td>
-
+                            <td>{{ $item->level}}</td>
                             <td>
                                 <a href="/users/{{ $item->id }}">
                                   <button type="button" class="btn btn-warning btn-sm"><i
