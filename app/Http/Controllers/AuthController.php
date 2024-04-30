@@ -44,7 +44,7 @@ class AuthController extends Controller
             'name' => 'gangga',
             'email' => 'ganggava@gmail.com',
             'email_verified_at' => now(),
-            'password' => '2005',
+            'password' => '123',
             'remember_token' => Str::random(10),
 
         ]);

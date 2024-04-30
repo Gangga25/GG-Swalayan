@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\Stuff;
 use App\Models\User;
+use App\Models\Transaction;
+use App\Models\Detail;
+use Exception;
 
 class ApiController extends Controller
 {
@@ -99,5 +103,46 @@ class ApiController extends Controller
             'value' => $data,
             'isError' => false,
         ]);
+    }
+    function saveTransaction(Request $req)
+    {
+        try {
+            $nota = Str::random(10);
+
+            Transaction::create([
+                'nota' => $nota,
+                'id_user' => $req->input('id_user'),
+                'id_customer' => null,
+                'pembeli' => $req->input('pembeli'),
+                'desc' => $req->input('desc'),
+                'date' => date('Y-m-d H:i:s'),
+            ]);
+
+            foreach ($req->input('detail_transaction') as $key => $value) {
+            
+                Detail::create([
+                    'nota' => $nota,
+                    'id_stuff' => $value['id'],
+                    'price' => $value['price'],
+                    'discount' => 0,
+                    'count' =>$value['count'],
+                ]);
+            }
+        
+            return response()->json([
+                'value' => null,
+                'isError' => false,
+                'error' => null,
+            ]);
+        
+        }
+        catch(Exception $e) {
+
+            return response()->json([
+                'value' => null,
+                'isError' => false,
+                'error' => null,
+            ]);
+        }
     }
 }

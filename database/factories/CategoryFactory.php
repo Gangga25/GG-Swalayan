@@ -19,7 +19,7 @@ class CategoryFactory extends Factory
         $fake = fake('id_ID');
 
         return [
-            'id' => $fake->unique()->numerify('K#########'),
+            'id' => $fake->unique()->numerify('k#########'),
             'name' => $fake->word(),
             'status' => $fake->randomElement([0, 1]),
         ];

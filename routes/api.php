@@ -18,11 +18,16 @@ use App\Http\Controllers\ApiController;
 Route::middleware(['auth:sanctum'])->group(function () {
     
     Route::get('auth', [ApiController::class, 'auth']);  
+
+    Route::get('/stuffs', [ApiController::class, 'stuff']);  
+    Route::post('/stuffs', [ApiController::class, 'stuffAdd']);  
+    Route::put('/stuffs/{stuff}', [ApiController::class, 'stuffUpdate']);  
+    Route::delete('/stuffs/{stuff}', [ApiController::class, 'stuffDelete']);
+
+    Route::post('/transaction/save', [ApiController::class, 'saveTransaction']);  
+
 });
 
 Route::post('login', [ApiController::class, 'login']);
 
-Route::get('/stuffs', [ApiController::class, 'stuff']);  
-Route::post('/stuffs', [ApiController::class, 'stuffAdd']);  
-Route::put('/stuffs/{stuff}', [ApiController::class, 'stuffUpdate']);  
-Route::delete('/stuffs/{stuff}', [ApiController::class, 'stuffDelete']);  
+

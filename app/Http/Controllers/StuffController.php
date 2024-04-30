@@ -40,11 +40,11 @@ class StuffController extends Controller
      */
     public function store(StoreStuffRequest $request)
     {
-        // dd($request);
-
+        
         $path = $request->file('file')->store('stuff');
-
+        
         $request->merge(['image' => $path]);
+        // dd($request);
         Stuff::create($request->all());
 
         return redirect('/stuffs')->with([
@@ -88,6 +88,7 @@ class StuffController extends Controller
      */
     public function destroy(Stuff $stuff)
     { 
+        // dd($stuff);
         Storage::delete($stuff->image);
 
         $stuff->delete();

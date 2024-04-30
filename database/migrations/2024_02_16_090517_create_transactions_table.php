@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->string('nota')->primary();
-            $table->string('id_user');
-            $table->string('id_customer');
+            $table->string('id_user')->nullable();
+            $table->string('id_customer')->nullable();
             $table->string('pembeli')->nullable();
-            $table->date('date')->nullable();
+            $table->dateTime('date')->nullable();
+            $table->string('desc')->nullable();
             $table->timestamps();
         });
     }
